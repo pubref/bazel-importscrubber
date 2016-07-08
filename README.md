@@ -73,16 +73,7 @@ $ ps -ef | grep bazel
 --option_sources=
 ```
 
-## Relevant Bazel Commands
-
-You can get more information about bazel command via the `bazel help`
-command.  In this post we'll be using three bazel commands:
-
-1. `bazel build`: compile and build program code.
-1. `bazel test`: run our tests.
-1. `bazel run`: execute our final executable jar.
-
-## Step 1: Repository Layout
+## Repository Layout
 
 (This section is not specific to bazel).
 
@@ -103,6 +94,17 @@ for two reasons:
 In preparing a new repo I've also adopted a standard maven directory
 layout with `src/main/java` and `src/test/java`.  Bazel plays nice
 with this directory layout.
+
+
+## Relevant Bazel Commands
+
+You can get more information about bazel command via the `bazel help`
+command.  In this post we'll be using three bazel commands:
+
+1. `bazel build`: compile and build program code.
+1. `bazel test`: run our tests.
+1. `bazel run`: execute our final executable jar.
+
 
 ## Relevant Bazel Configuration Files
 
@@ -127,6 +129,7 @@ rule syntax.  Required, but can be empty.
 
 The python-like syntax is called `Skylark` (in the context of writing
 bazel extensions).
+
 
 ## Relevant Bazel Nomenclature
 
@@ -171,7 +174,7 @@ $ cd bazel-importscrubber
 $ git init
 $ touch WORKSPACE
 $ git add WORKSPACE
-$ mkdir -p src/main/java src/main/test
+$ mkdir -p src/main/java src/test/java
 ```
 
 If you like, read more about [rules that can go in the WORKSPACE file][bazel-workspace-rules].
