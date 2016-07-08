@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-java_binary(
+java_library(
     name = "importscrubber",
     srcs = [
         "ImportScrubber.java",
@@ -20,8 +20,15 @@ java_binary(
         "FileChooser.java",
         "Resources.java",
     ],
-    main_class = "org.pubref.util.importscrubber.ImportScrubber",
     deps = [
         "@org_apache_bcel_bcel//jar",
+    ]
+)
+
+java_binary(
+    name = "importscrubber_bin",
+    main_class = "org.pubref.util.importscrubber.ImportScrubber",
+    runtime_deps = [
+        ":importscrubber",
     ]
 )
