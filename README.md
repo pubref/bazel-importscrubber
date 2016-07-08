@@ -1,4 +1,4 @@
-# Java Importscrubber
+# Bazel Importscrubber
 
 A fork of `net.sourceforge.importscrubber` used to demonstrate the use
 of [bazel] for java developers.
@@ -12,11 +12,12 @@ software products.
 ## About importscrubber
 
 Importscrubber is a java program that parses java files and cleans up
-the import statements.  The program is fairly ancient, dating back to
-the late 1990s.  These days you can do import statement cleanup with
-Eclipse (and probably many other IDEs), but for developers not using a
-dedicated java IDE using an external tool to convert those pesky
-`java.util.*` statements into `java.util.Map` can still be useful.
+the import statements.  The program is ancient, dating back to the
+late 1990s, and still available on sourceforge.  These days you can do
+import statement cleanup with Eclipse (and probably many other IDEs),
+but for developers not using a dedicated java IDE using an external
+tool to convert those pesky `java.util.*` statements into
+`java.util.Map` can still be useful.
 
 I thought adapting importscrubber for bazel would be a good starter
 project for demonstration of bazel's java support as it is fairly
@@ -30,7 +31,7 @@ the `bazel-0.2.3-jdk7-installer-darwin-x86_64.sh` script that installs
 the `bazel` command to `~/bin` path.  You'll want to have this on your
 `PATH`.
 
-```bash
+```sh
 $ chmod +x bazel-0.2.3-jdk7-installer-darwin-x86_64.sh
 
 # Install bazel to ~/bin
@@ -51,7 +52,7 @@ ulitimately runs as a long-lived java server process (one per
 WORKSPACE) that shuts itself down after 3 hours of inactivity.  Here's
 what this process looks like on my system:
 
-```bash
+```sh
 $ ps -ef | grep bazel
 501  5003     1   0  7:07AM ??         0:51.08 bazel(github) -server
 -XX:+HeapDumpOnOutOfMemoryError
@@ -123,6 +124,9 @@ rule syntax.  Required, but can be empty.
 * **/etc/bazel.bazelrc**: system-level bazel resource file.  Use to
   configure options for all users on the system.  Optional.
 
+The python-like syntax is called `Skylark` (in the context of writing
+bazel extensions).
+
 ## Relevant Bazel Nomenclature
 
 In general when you invoke the *bazel client* `~/bin/bazel` you
@@ -141,7 +145,7 @@ efficienctly as possible in an incremental and parallel fashion.
 * **target pattern**: A heirarchical path selection syntax that
   identifies nodes in dependency graph.  Special operators include `/`
   (slash character, for path traversal relative to a folder), `//`
-  (double-slash, for path traversal from the project root), ':' (colon
+  (double-slash, for path traversal from the project root), `:` (colon
   character, for path traversal within a `BUILD` file), and `@`
   (at-sign character, for path traversal relative to an external
   dependency named in the WORKSPACE).  Examples:
@@ -169,8 +173,7 @@ $ git add WORKSPACE
 $ mkdir -p src/main/java src/main/test
 ```
 
-If you like, read more about
-[commands that can go in the WORKSPACE file][bazel-workspace-commands].
+If you like, read more about [rules that can go in the WORKSPACE file][bazel-workspace-rules].
 
 
 ## Step 2: Create a `BUILD` file where our java sources live.
@@ -361,6 +364,12 @@ we're done.
 TODO.
 
 ## Creating a Skylark Rule for bazel-importscrubber
+
+TODO.
+
+## Installing and using third-part bazel rules
+
+TODO.
 
 [bazel-home]: http://www.bazel.io "Bazel Project Page"
 [bazel-install]: http://www.bazel.io/docs/install.html "Bazel Install Documentation"
