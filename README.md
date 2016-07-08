@@ -1,15 +1,14 @@
 # Bazel Importscrubber
 
 A fork of `net.sourceforge.importscrubber` used to demonstrate the use
-of [bazel] for java developers.
+of [Bazel][bazel-home] for java developers.
 
 ## About Bazel
 
 [Bazel][bazel-home] is Google's open-source version of their internal
-tool `blaze` used internally to build the majority of Google's
-software products.
+tool `blaze` used to build the majority of Google's software products.
 
-## About importscrubber
+## About Importscrubber
 
 Importscrubber is a java program that parses java files and cleans up
 the import statements.  The program is ancient, dating back to the
@@ -21,7 +20,9 @@ tool to convert those pesky `java.util.*` statements into
 
 I thought adapting importscrubber for bazel would be a good starter
 project for demonstration of bazel's java support as it is fairly
-simple but not excessively trivial.
+simple but not excessively trivial.  We can also use it to demonstrate
+how to integrate it with Bazel itself via Bazel's extension mechanism
+(Skylark).
 
 
 ## Getting Started with Bazel
